@@ -1,0 +1,24 @@
+{
+  "Klient": [
+	{
+		"Id_Klient": 1,
+		"Imie": "Count",
+		"Nazwisko": "Dracula",
+    },
+	{
+		"Id_Klient": 2,
+		"Imie": "Jonathan",
+		"Nazwisko": "Loughran",
+	},
+	{
+		"Id_Klient": 3,
+		"Imie": "Mavis",
+		"Nazwisko": "Dracula-Loughran",
+	},
+	{
+		"Id_Klient": 4,
+		"Imie": "Frankenstein",
+		"Nazwisko": "Frankenstein",
+	}
+	]
+}
