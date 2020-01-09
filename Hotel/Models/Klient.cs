@@ -8,14 +8,6 @@ namespace Hotel
 {
     public class Klient
     {
-        /*
-        public Klient(int id_klienta, string imie, string nazwisko)
-        {
-            Id_Klient = id_klienta;
-            Imie = imie;
-            Nazwisko = nazwisko;
-        }
-        */
         [Key]
         public int Id_Klient { get; set; }
         public string Imie { get; set; }

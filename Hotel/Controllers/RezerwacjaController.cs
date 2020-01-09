@@ -80,7 +80,13 @@ namespace Hotel.Controllers
         [HttpPost]
         public async Task<ActionResult<Rezerwacja>> PostRezerwacja(Rezerwacja rezerwacja)
         {
+            Klient k = new Klient() {Imie = rezerwacja._Klient.Imie, Nazwisko = rezerwacja._Klient.Nazwisko };
+            rezerwacja._Klient = k;
+            Pokoj p = new Pokoj() { Wolny = rezerwacja._Pokoj.Wolny };
+            rezerwacja._Pokoj = p;
             _context.Rezerwacja.Add(rezerwacja);
+            _context.Klient.Add(k);
+            _context.Pokoj.Add(p);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetRezerwacja), new { id = rezerwacja.Id_Rezerwacji }, rezerwacja);

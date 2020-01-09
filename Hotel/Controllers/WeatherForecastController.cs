@@ -31,6 +31,7 @@ namespace Hotel.Controllers
         [HttpGet]
         public IEnumerable<Rezerwacja> Get()
         {
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new Rezerwacja
             {

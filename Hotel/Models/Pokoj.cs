@@ -8,13 +8,6 @@ namespace Hotel
 {
     public class Pokoj
     {
-        /*
-        public Pokoj(int nr_pokoju, bool wolny)
-        {
-            Nr_Pokoju = nr_pokoju;
-            Wolny = wolny;
-        }
-        */
         [Key]
         public int Nr_Pokoju { get; set; }
         public bool Wolny { get; set; }

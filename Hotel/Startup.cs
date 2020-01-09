@@ -28,13 +28,11 @@ namespace Hotel
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RezerwacjaContext>(opt =>
-            opt.UseInMemoryDatabase("Rezerwacje"));
+            opt.UseInMemoryDatabase("Hotel"));
             services.AddDbContext<PokojContext>(opt =>
-            opt.UseInMemoryDatabase("Pokoje"));
+            opt.UseInMemoryDatabase("Hotel"));
             services.AddDbContext<KlientContext>(opt =>
-            opt.UseInMemoryDatabase("Klienci"));
-            //services.AddDbContext<DataContext>(opt =>
-            //opt.UseInMemoryDatabase("Daty"));
+            opt.UseInMemoryDatabase("Hotel"));
             services.AddControllers();
         }
 

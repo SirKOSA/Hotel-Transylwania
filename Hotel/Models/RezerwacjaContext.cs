@@ -14,5 +14,7 @@ namespace Hotel.Models
 
         }
         public DbSet<Hotel.Rezerwacja> Rezerwacja { get; set; }
+        public DbSet<Hotel.Klient> Klient { get; set; }
+        public DbSet<Hotel.Pokoj> Pokoj { get; set; }
     }
 }
