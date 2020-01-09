@@ -14,9 +14,9 @@ namespace Hotel.Controllers
     [ApiController]
     public class PokojController : ControllerBase
     {
-        private readonly PokojContext _context;
+        private readonly HotelContext _context;
 
-        public PokojController(PokojContext context)
+        public PokojController(HotelContext context)
         {
             _context = context;
         }

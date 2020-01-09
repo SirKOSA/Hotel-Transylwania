@@ -3,16 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hotel;
 
 namespace Hotel.Models
 {
-    public class PokojContext : DbContext
+    public class HotelContext : DbContext
     {
-        public PokojContext(DbContextOptions<PokojContext> options) : base(options)
+        public HotelContext(DbContextOptions<HotelContext> options) : base(options)
         {
 
         }
+        public DbSet<Hotel.Rezerwacja> Rezerwacja { get; set; }
+        public DbSet<Hotel.Klient> Klient { get; set; }
         public DbSet<Hotel.Pokoj> Pokoj { get; set; }
+
     }
 }

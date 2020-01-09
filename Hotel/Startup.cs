@@ -27,11 +27,7 @@ namespace Hotel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<RezerwacjaContext>(opt =>
-            opt.UseInMemoryDatabase("Hotel"));
-            services.AddDbContext<PokojContext>(opt =>
-            opt.UseInMemoryDatabase("Hotel"));
-            services.AddDbContext<KlientContext>(opt =>
+            services.AddDbContext<HotelContext>(opt =>
             opt.UseInMemoryDatabase("Hotel"));
             services.AddControllers();
         }

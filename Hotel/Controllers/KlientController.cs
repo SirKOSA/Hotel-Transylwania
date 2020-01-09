@@ -14,9 +14,9 @@ namespace Hotel.Controllers
     [ApiController]
     public class KlientController : ControllerBase
     {
-        private readonly KlientContext _context;
+        private readonly HotelContext _context;
 
-        public KlientController(KlientContext context)
+        public KlientController(HotelContext context)
         {
             _context = context;
         }

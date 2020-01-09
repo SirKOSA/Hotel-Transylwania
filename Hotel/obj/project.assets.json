@@ -8507,11 +8507,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Project\\Hotel_T\\Hotel\\Hotel\\Hotel.csproj",
+      "projectUniqueName": "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
       "projectName": "Hotel",
-      "projectPath": "E:\\Project\\Hotel_T\\Hotel\\Hotel\\Hotel.csproj",
+      "projectPath": "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
       "packagesPath": "C:\\Users\\SirKOSA\\.nuget\\packages\\",
-      "outputPath": "E:\\Project\\Hotel_T\\Hotel\\Hotel\\obj\\",
+      "outputPath": "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
