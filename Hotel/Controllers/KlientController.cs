@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Hotel;
+using Hotel.Models;
+
+namespace Hotel.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class KlientController : ControllerBase
+    {
+        private readonly KlientContext _context;
+
+        public KlientController(KlientContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Klient
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Klient>>> GetKlient()
+        {
+            return await _context.Klient.ToListAsync();
+        }
+
+        // GET: api/Klient/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Klient>> GetKlient(int id)
+        {
+            var klient = await _context.Klient.FindAsync(id);
+
+            if (klient == null)
+            {
+                return NotFound();
+            }
+
+            return klient;
+        }
+
+        // PUT: api/Klient/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutKlient(int id, Klient klient)
+        {
+            if (id != klient.Id_Klient)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(klient).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!KlientExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Klient
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPost]
+        public async Task<ActionResult<Klient>> PostKlient(Klient klient)
+        {
+            _context.Klient.Add(klient);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetKlient), new { id = klient.Id_Klient }, klient);
+        }
+
+        // DELETE: api/Klient/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Klient>> DeleteKlient(int id)
+        {
+            var klient = await _context.Klient.FindAsync(id);
+            if (klient == null)
+            {
+                return NotFound();
+            }
+
+            _context.Klient.Remove(klient);
+            await _context.SaveChangesAsync();
+
+            return klient;
+        }
+
+        private bool KlientExists(int id)
+        {
+            return _context.Klient.Any(e => e.Id_Klient == id);
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+	"Nr_Pokoju": 1,
+	"Wolny": false,
+},
+{
+	"Nr_Pokoju": 2,
+	"Wolny": false,
+},
+{
+	"Nr_Pokoju": 3,
+	"Wolny": true,
+},
+{
+	"Nr_Pokoju": 4,
+	"Wolny": false,
+}

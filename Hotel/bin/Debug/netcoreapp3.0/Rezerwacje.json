@@ -1,0 +1,78 @@
+{
+	"Id_Rezerwacji": 1,
+	"Pokoj": 
+	{
+		"Nr_Pokoju": 1,
+		"Wolny": false,
+	},
+	"Klient":
+	{
+		"Id_Klient": 2,
+		"Imie": "Jonathan",
+		"Nazwisko": "Loughran",
+	},
+	"Data_Rozpoczecia_Rezerwacji":
+	{
+		"Dzien": 10,
+		"Miesiac": 11,
+		"Rok": 20019
+	},
+	"Data_Zakonczenia_Rezerwacji":
+	{
+		"Dzien": 30,
+		"Miesiac": 11,
+		"Rok": 20019
+	}
+},
+{
+	"Id_Rezerwacji": 2,
+	"Pokoj": 
+	{
+		"Nr_Pokoju": 4,
+		"Wolny": false,
+	},
+	"Klient":
+	{
+		"Id_Klient": 4,
+		"Imie": "Frankenstein",
+		"Nazwisko": "Frankenstein",
+	},
+	"Data_Rozpoczecia_Rezerwacji":
+	{
+		"Dzien": 20,
+		"Miesiac": 11,
+		"Rok": 20019
+	},
+	"Data_Zakonczenia_Rezerwacji":
+	{
+		"Dzien": 25,
+		"Miesiac": 11,
+		"Rok": 20019
+	}
+},
+{
+	"Id_Rezerwacji": 3,
+	"Pokoj": 
+	{
+		"Nr_Pokoju": 2,
+		"Wolny": false,
+	},
+	"Klient":
+	{
+		"Id_Klient": 3,
+		"Imie": "Mavis",
+		"Nazwisko": "Dracula-Loughran",
+	},
+	"Data_Rozpoczecia_Rezerwacji":
+	{
+		"Dzien": 15,
+		"Miesiac": 11,
+		"Rok": 20019
+	},
+	"Data_Zakonczenia_Rezerwacji":
+	{
+		"Dzien": 25,
+		"Miesiac": 11,
+		"Rok": 20019
+	}
+}
