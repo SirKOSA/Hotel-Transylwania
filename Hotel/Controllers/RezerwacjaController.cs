@@ -80,14 +80,18 @@ namespace Hotel.Controllers
         [HttpPost]
         public async Task<ActionResult<Rezerwacja>> PostRezerwacja(Rezerwacja rezerwacja)
         {
-            Klient k = new Klient() {Imie = rezerwacja._Klient.Imie, Nazwisko = rezerwacja._Klient.Nazwisko };
-            Pokoj p = new Pokoj() { Wolny = rezerwacja._Pokoj.Wolny };
-            _context.Klient.Add(k);
-            _context.Pokoj.Add(p);
-            rezerwacja._Klient = k;
-            rezerwacja._Pokoj = p;
-            _context.Rezerwacja.Add(rezerwacja);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Klient.Find(rezerwacja.id_klient);
+                _context.Pokoj.Find(rezerwacja.nr_pokoju).Wolny = false;
+                _context.Rezerwacja.Add(rezerwacja);
+                await _context.SaveChangesAsync();
+            }
+            catch (NullReferenceException)
+            {
+                throw;
+            }
+            
 
             return CreatedAtAction(nameof(GetRezerwacja), new { id = rezerwacja.Id_Rezerwacji }, rezerwacja);
         }

@@ -10,8 +10,11 @@ namespace Hotel
     {
         [Key]
         public int Id_Rezerwacji { get; set; }
-        public Pokoj _Pokoj { get; set; }
-        public Klient _Klient { get; set; }
+
+        public int id_klient { get; set; }
+
+        public int nr_pokoju { get; set; }
+
         public DateTime Data_Rozpoczecia_Rezerwacji { get; set; }
         public DateTime Data_Zakonczenia_Rezerwacji { get; set; }
     }
