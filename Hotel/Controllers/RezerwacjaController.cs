@@ -10,6 +10,7 @@ using Hotel.Models;
 
 namespace Hotel.Controllers
 {
+    // RezerwacjaController - kontroler odpowiadający za obsługę encji w tabeli Pokoj
     [Route("api/[controller]")]
     [ApiController]
     public class RezerwacjaController : ControllerBase
@@ -22,6 +23,7 @@ namespace Hotel.Controllers
         }
 
         // GET: api/Rezerwacja
+        // Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Rezerwacja.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Rezerwacja>>> GetRezerwacja()
         {
@@ -29,6 +31,7 @@ namespace Hotel.Controllers
         }
 
         // GET: api/Rezerwacja/5
+        // Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Rezerwacja.
         [HttpGet("{id}")]
         public async Task<ActionResult<Rezerwacja>> GetRezerwacja(int id)
         {
@@ -43,23 +46,24 @@ namespace Hotel.Controllers
         }
 
         // PUT: api/Rezerwacja/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Rezerwacja.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRezerwacja(int id, Rezerwacja rezerwacja)
         {
+            /*
             if (id != rezerwacja.Id_Rezerwacji)
             {
                 return BadRequest();
             }
+            */
 
+            rezerwacja.Id_Rezerwacji = id;
             _context.Entry(rezerwacja).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException e)
             {
                 if (!RezerwacjaExists(id))
                 {
@@ -67,7 +71,7 @@ namespace Hotel.Controllers
                 }
                 else
                 {
-                    throw;
+                    return BadRequest(e.Message + "\n" + e.StackTrace);
                 }
             }
 
@@ -75,8 +79,8 @@ namespace Hotel.Controllers
         }
 
         // POST: api/Rezerwacja
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // Ta funkcja dodaje do bazy danych nową encję (rezerwację).
+        // Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
         [HttpPost]
         public async Task<ActionResult<Rezerwacja>> PostRezerwacja(Rezerwacja rezerwacja)
         {
@@ -87,16 +91,16 @@ namespace Hotel.Controllers
                 _context.Rezerwacja.Add(rezerwacja);
                 await _context.SaveChangesAsync();
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
-                throw;
+                return BadRequest(e.Message + "\n" + e.StackTrace);
             }
-            
 
             return CreatedAtAction(nameof(GetRezerwacja), new { id = rezerwacja.Id_Rezerwacji }, rezerwacja);
         }
 
         // DELETE: api/Rezerwacja/5
+        // Ta funkcja usuwa z tabeli Rezerwacja encję o określonym identyfikatorze (id).
         [HttpDelete("{id}")]
         public async Task<ActionResult<Rezerwacja>> DeleteRezerwacja(int id)
         {
@@ -112,6 +116,7 @@ namespace Hotel.Controllers
             return rezerwacja;
         }
 
+        // Funkcja pomocnicza sprawdzająca, czy encja o określonym identyfikatorze (id) istnieje w tabeli.
         private bool RezerwacjaExists(int id)
         {
             return _context.Rezerwacja.Any(e => e.Id_Rezerwacji == id);

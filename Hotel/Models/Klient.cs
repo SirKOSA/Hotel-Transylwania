@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hotel
 {
+    // Tabela Klient
     public class Klient
     {
         [Key]

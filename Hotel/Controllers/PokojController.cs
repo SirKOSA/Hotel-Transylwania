@@ -10,6 +10,7 @@ using Hotel.Models;
 
 namespace Hotel.Controllers
 {
+    // PokojController - kontroler odpowiadający za obsługę encji w tabeli Pokoj
     [Route("api/[controller]")]
     [ApiController]
     public class PokojController : ControllerBase
@@ -22,6 +23,7 @@ namespace Hotel.Controllers
         }
 
         // GET: api/Pokoj
+        // Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Pokoj.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pokoj>>> GetPokoj()
         {
@@ -29,6 +31,7 @@ namespace Hotel.Controllers
         }
 
         // GET: api/Pokoj/5
+        // Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Pokoj.
         [HttpGet("{id}")]
         public async Task<ActionResult<Pokoj>> GetPokoj(int id)
         {
@@ -43,23 +46,24 @@ namespace Hotel.Controllers
         }
 
         // PUT: api/Pokoj/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Pokoj.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPokoj(int id, Pokoj pokoj)
         {
+            /*
             if (id != pokoj.Nr_Pokoju)
             {
                 return BadRequest();
             }
+            */
 
+            pokoj.Nr_Pokoju = id;
             _context.Entry(pokoj).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException e)
             {
                 if (!PokojExists(id))
                 {
@@ -67,7 +71,7 @@ namespace Hotel.Controllers
                 }
                 else
                 {
-                    throw;
+                    return BadRequest(e.Message + "\n" + e.StackTrace);
                 }
             }
 
@@ -75,8 +79,8 @@ namespace Hotel.Controllers
         }
 
         // POST: api/Pokoj
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // Ta funkcja dodaje do bazy danych nową encję (pokój).
+        // Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
         [HttpPost]
         public async Task<ActionResult<Pokoj>> PostPokoj(Pokoj pokoj)
         {
@@ -87,6 +91,7 @@ namespace Hotel.Controllers
         }
 
         // DELETE: api/Pokoj/5
+        // Ta funkcja usuwa z tabeli Pokoj encję o określonym identyfikatorze (id).
         [HttpDelete("{id}")]
         public async Task<ActionResult<Pokoj>> DeletePokoj(int id)
         {
@@ -102,6 +107,7 @@ namespace Hotel.Controllers
             return pokoj;
         }
 
+        // Funkcja pomocnicza sprawdzająca, czy encja o określonym identyfikatorze (id) istnieje w tabeli.
         private bool PokojExists(int id)
         {
             return _context.Pokoj.Any(e => e.Nr_Pokoju == id);

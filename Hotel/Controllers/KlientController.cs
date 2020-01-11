@@ -10,6 +10,7 @@ using Hotel.Models;
 
 namespace Hotel.Controllers
 {
+    // KlientController - kontroler odpowiadający za obsługę encji w tabeli Klient
     [Route("api/[controller]")]
     [ApiController]
     public class KlientController : ControllerBase
@@ -22,6 +23,7 @@ namespace Hotel.Controllers
         }
 
         // GET: api/Klient
+        // Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Klient.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Klient>>> GetKlient()
         {
@@ -29,6 +31,7 @@ namespace Hotel.Controllers
         }
 
         // GET: api/Klient/5
+        // Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Klient.
         [HttpGet("{id}")]
         public async Task<ActionResult<Klient>> GetKlient(int id)
         {
@@ -43,23 +46,24 @@ namespace Hotel.Controllers
         }
 
         // PUT: api/Klient/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Klient.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutKlient(int id, Klient klient)
         {
+            /*
             if (id != klient.Id_Klient)
             {
                 return BadRequest();
             }
+            */
 
+            klient.Id_Klient = id;
             _context.Entry(klient).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException e)
             {
                 if (!KlientExists(id))
                 {
@@ -67,7 +71,7 @@ namespace Hotel.Controllers
                 }
                 else
                 {
-                    throw;
+                    return BadRequest(e.Message + "\n" + e.StackTrace);
                 }
             }
 
@@ -75,8 +79,8 @@ namespace Hotel.Controllers
         }
 
         // POST: api/Klient
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // Ta funkcja dodaje do bazy danych nową encję (klienta).
+        // Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
         [HttpPost]
         public async Task<ActionResult<Klient>> PostKlient(Klient klient)
         {
@@ -87,6 +91,7 @@ namespace Hotel.Controllers
         }
 
         // DELETE: api/Klient/5
+        // Ta funkcja usuwa z tabeli Klient encję o określonym identyfikatorze (id).
         [HttpDelete("{id}")]
         public async Task<ActionResult<Klient>> DeleteKlient(int id)
         {
@@ -102,6 +107,7 @@ namespace Hotel.Controllers
             return klient;
         }
 
+        // Funkcja pomocnicza sprawdzająca, czy encja o określonym identyfikatorze (id) istnieje w tabeli.
         private bool KlientExists(int id)
         {
             return _context.Klient.Any(e => e.Id_Klient == id);
