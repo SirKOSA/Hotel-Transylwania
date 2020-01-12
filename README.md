@@ -1,10 +1,10 @@
 # Hotel Transylwania
 Projekt zaliczeniowy z przedmiotu Środowisko Oprogramowania Komponentowego. Jest to interfejs API obsługujący hotel (sieć hoteli). Umożliwia zarządzanie pokojami, klientami, oraz rezerwacjami.
 
-## Postęp prac
+### Postęp prac
 Na dzień dzisiejszy (11 stycznia 2020) interfejs nie ma dostępnego interfejsu graficznego do zarządzania nim, a baza danych tworzona jest w pamięci RAM. Planowane jest podpięcie trwałej bazy danych.
 
-### Wymagania
+## Wymagania
 * Visual Studio 2019 lub nowszy
 * .NET Core 3.0 lub nowszy
 
