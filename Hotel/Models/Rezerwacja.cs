@@ -15,5 +15,6 @@ namespace Hotel
         public int nr_pokoju { get; set; }
         public DateTime Data_Rozpoczecia_Rezerwacji { get; set; }
         public DateTime Data_Zakonczenia_Rezerwacji { get; set; }
+        public float Cena { get; set;}
     }
 }

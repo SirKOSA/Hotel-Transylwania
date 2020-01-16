@@ -12,5 +12,7 @@ namespace Hotel
         [Key]
         public int Nr_Pokoju { get; set; }
         public bool Wolny { get; set; }
+        public int Liczba_miejsc { get; set; }
+        public int Standard_pokoju { get; set; }
     }
 }
