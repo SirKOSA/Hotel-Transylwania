@@ -1,35 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\Hotel.csproj": {}
+    "C:\\Users\\Jakub\\Source\\Repos\\SirKOSA\\Hotel-Transylwania\\Hotel\\Hotel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\Hotel.csproj": {
+    "C:\\Users\\Jakub\\Source\\Repos\\SirKOSA\\Hotel-Transylwania\\Hotel\\Hotel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
+        "projectUniqueName": "C:\\Users\\Jakub\\Source\\Repos\\SirKOSA\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
         "projectName": "Hotel",
-        "projectPath": "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
-        "packagesPath": "C:\\Users\\SirKOSA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SirKOSA\\Documents\\GitHub\\Hotel-Transylwania\\Hotel\\obj\\",
+        "projectPath": "C:\\Users\\Jakub\\Source\\Repos\\SirKOSA\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
+        "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jakub\\Source\\Repos\\SirKOSA\\Hotel-Transylwania\\Hotel\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\SirKOSA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files (x86)\\Microsoft SDKs\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -40,7 +34,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.CodeAnalysis.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -50,29 +44,33 @@
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
