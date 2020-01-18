@@ -87,7 +87,11 @@ namespace Hotel.Controllers
             try
             {
                 _context.Klient.Find(rezerwacja.id_klient);
-                _context.Pokoj.Find(rezerwacja.nr_pokoju).Wolny = false;
+                _context.Standard.Find(_context.Pokoj.Find(rezerwacja.nr_pokoju).Standard_pokoju);
+                Pokoj p = _context.Pokoj.Find(rezerwacja.nr_pokoju);
+                Standard s = _context.Standard.Find(_context.Pokoj.Find(rezerwacja.nr_pokoju).Standard_pokoju);
+                rezerwacja.Cena = 0.00f;
+                rezerwacja.Cena = s.CenaStandardu * (rezerwacja.Data_Zakonczenia_Rezerwacji - rezerwacja.Data_Rozpoczecia_Rezerwacji).Days - (p.Liczba_miejsc * 10)+10; 
                 _context.Rezerwacja.Add(rezerwacja);
                 await _context.SaveChangesAsync();
             }

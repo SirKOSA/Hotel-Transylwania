@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hotel.Models;
 
 namespace Hotel.Models
 {
@@ -14,5 +15,6 @@ namespace Hotel.Models
         public DbSet<Hotel.Rezerwacja> Rezerwacja { get; set; }
         public DbSet<Hotel.Klient> Klient { get; set; }
         public DbSet<Hotel.Pokoj> Pokoj { get; set; }
+        public DbSet<Hotel.Models.Standard> Standard { get; set; }
     }
 }
