@@ -27,5 +27,3 @@ Z uwagi na brak GUI polecenia należy wysyłać za pośrednictwem programu Postm
 ```
 /api/Rezerwacje/
 ```
-## GUI/SWAGGER/ITD
-swagger dodany i uporzadkowany, uzywajcie pliku Hotel-gui.sln bo nie chciało mi pushnąć bez zmiany nazwy :/ 
