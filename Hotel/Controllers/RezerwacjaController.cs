@@ -22,16 +22,27 @@ namespace Hotel.Controllers
             _context = context;
         }
 
-        // GET: api/Rezerwacja
-        // Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Rezerwacja.
+        /// <summary>
+        ///  GET: api/Rezerwacja
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Rezerwacja.
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Rezerwacja>>> GetRezerwacja()
         {
             return await _context.Rezerwacja.ToListAsync();
         }
 
-        // GET: api/Rezerwacja/5
-        // Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Rezerwacja.
+        /// <summary>
+        ///  GET: api/Rezerwacja/5
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Rezerwacja.
+        /// </remarks>
+        /// <param name="id">podaj numer id rezerwacji którą chciałbyś wyjąć z bazy danych</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Rezerwacja>> GetRezerwacja(int id)
         {
@@ -45,8 +56,14 @@ namespace Hotel.Controllers
             return rezerwacja;
         }
 
-        // PUT: api/Rezerwacja/5
-        // Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Rezerwacja.
+        /// <summary>
+        ///  PUT: api/Rezerwacja/5
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Rezerwacja.
+        /// </remarks>
+        /// <param name="id">podaj numer id rezerwacji którą chcesz zaktualizować w bazie</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRezerwacja(int id, Rezerwacja rezerwacja)
         {
@@ -78,9 +95,14 @@ namespace Hotel.Controllers
             return NoContent();
         }
 
-        // POST: api/Rezerwacja
-        // Ta funkcja dodaje do bazy danych nową encję (rezerwację).
-        // Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
+        /// <summary>
+        ///  POST: api/Rezerwacja
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja dodaje do bazy danych nową encję (rezerwację).
+        /// Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
+        /// </remarks>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Rezerwacja>> PostRezerwacja(Rezerwacja rezerwacja)
         {
@@ -103,8 +125,14 @@ namespace Hotel.Controllers
             return CreatedAtAction(nameof(GetRezerwacja), new { id = rezerwacja.Id_Rezerwacji }, rezerwacja);
         }
 
-        // DELETE: api/Rezerwacja/5
-        // Ta funkcja usuwa z tabeli Rezerwacja encję o określonym identyfikatorze (id).
+        /// <summary>
+        ///  DELETE: api/Rezerwacja/5
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja usuwa z tabeli Rezerwacja encję o określonym identyfikatorze (id).
+        /// </remarks>
+        /// <param name="id">podaj numer id rezerwacji którą chciałbyś z bazy usunąć</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Rezerwacja>> DeleteRezerwacja(int id)
         {

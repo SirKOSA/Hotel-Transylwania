@@ -22,16 +22,27 @@ namespace Hotel.Controllers
             _context = context;
         }
 
-        // GET: api/Pokoj
-        // Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Pokoj.
+        /// <summary>
+        ///  GET: api/Pokoj
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Pokoj.
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pokoj>>> GetPokoj()
         {
             return await _context.Pokoj.ToListAsync();
         }
 
-        // GET: api/Pokoj/5
-        // Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Pokoj.
+        /// <summary>
+        ///  GET: api/Pokoj/5
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Pokoj.
+        /// </remarks>
+        /// <param name="id">tutaj wpisz identyfikator pokoju który chcesz pobrać z bazy</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Pokoj>> GetPokoj(int id)
         {
@@ -45,8 +56,14 @@ namespace Hotel.Controllers
             return pokoj;
         }
 
-        // PUT: api/Pokoj/5
-        // Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Pokoj.
+        /// <summary>
+        ///  PUT: api/Pokoj/5 
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Pokoj.
+        /// </remarks>
+        /// <param name="id">tutaj wpisz numer id pokoju który chcesz zaktualizować</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPokoj(int id, Pokoj pokoj)
         {
@@ -78,9 +95,14 @@ namespace Hotel.Controllers
             return NoContent();
         }
 
-        // POST: api/Pokoj
-        // Ta funkcja dodaje do bazy danych nową encję (pokój).
-        // Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
+        /// <summary>
+        ///  POST: api/Pokoj
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja dodaje do bazy danych nową encję (pokój).
+        /// Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
+        /// </remarks>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Pokoj>> PostPokoj(Pokoj pokoj)
         {
@@ -90,8 +112,14 @@ namespace Hotel.Controllers
             return CreatedAtAction(nameof(GetPokoj), new { id = pokoj.Nr_Pokoju }, pokoj);
         }
 
-        // DELETE: api/Pokoj/5
-        // Ta funkcja usuwa z tabeli Pokoj encję o określonym identyfikatorze (id).
+        /// <summary>
+        /// DELETE: api/Pokoj/5
+        /// </summary>
+        /// <remarks>
+        ///  Ta funkcja usuwa z tabeli Pokoj encję o określonym identyfikatorze (id).
+        /// </remarks>
+        /// <param name="id">podaj id pokoju który chciałbyś usunąć</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Pokoj>> DeletePokoj(int id)
         {

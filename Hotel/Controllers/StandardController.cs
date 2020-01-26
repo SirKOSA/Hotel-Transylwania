@@ -20,14 +20,27 @@ namespace Hotel.Controllers
             _context = context;
         }
 
-        // GET: api/Standard
+        /// <summary>
+        ///  GET: api/Standard
+        /// </summary>
+        /// <remarks>
+        /// Funkcja zwraca wszystkie dane z tabeli Standard
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Standard>>> GetStandard()
         {
             return await _context.Standard.ToListAsync();
         }
 
-        // GET: api/Standard/5
+        /// <summary>
+        /// GET: api/Standard/5
+        /// </summary>
+        /// <remarks>
+        /// Funkcja zwraca konkretną encje o podanym identyfikatorze
+        /// </remarks>
+        /// <param name="id">tu podaj identyfikator standardu który chcesz wyciągnąć z bazy</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Standard>> GetStandard(int id)
         {
@@ -41,9 +54,14 @@ namespace Hotel.Controllers
             return standard;
         }
 
-        // PUT: api/Standard/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        ///  PUT: api/Standard/5
+        /// </summary>
+        /// <remarks>
+        /// funkcja aktualizuje istniejący rekord o danym id w tabeli Standart
+        /// </remarks>
+        /// <param name="id">tu podaj id rekordu do aktualizacji</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStandard(int id, Standard standard)
         {
@@ -73,9 +91,13 @@ namespace Hotel.Controllers
             return NoContent();
         }
 
-        // POST: api/Standard
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// POST: api/Standard
+        /// </summary>
+        /// <remarks>
+        /// Funkcja tworzy/aktualizuje pozycje w encji Standart
+        /// </remarks>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Standard>> PostStandard(Standard standard)
         {
@@ -85,7 +107,14 @@ namespace Hotel.Controllers
             return CreatedAtAction(nameof(GetStandard), new { id = standard.StandardPokoju }, standard);
         }
 
-        // DELETE: api/Standard/5
+        /// <summary>
+        ///  DELETE: api/Standard/5
+        /// </summary>
+        /// <remarks>
+        /// Funkcja usuwa pozycje o danym id z tabeli Standard
+        /// </remarks>
+        /// <param name="id">Tu podaj Id standardu który chcesz usunąć</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Standard>> DeleteStandard(int id)
         {

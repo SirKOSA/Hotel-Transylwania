@@ -2,11 +2,11 @@
 Projekt zaliczeniowy z przedmiotu Środowisko Oprogramowania Komponentowego. Jest to interfejs API obsługujący hotel (sieć hoteli). Umożliwia zarządzanie pokojami, klientami, oraz rezerwacjami.
 
 ### Postęp prac
-Na dzień dzisiejszy (11 stycznia 2020) interfejs nie ma dostępnego interfejsu graficznego do zarządzania nim, a baza danych tworzona jest w pamięci RAM. Planowane jest podpięcie trwałej bazy danych.
+Na dzień dzisiejszy (18 stycznia 2020) jest dostępny Swagger UI do zarządzania interfejsem, a baza danych tworzona jest w pamięci RAM.
 
 ## Wymagania
 * Visual Studio 2019 lub nowszy
-* .NET Core 3.0 lub nowszy
+* .NET Core 3.1 lub nowszy
 
 ## Obsługa
 Po uruchomieniu programu, serwer z API działa pod jednym z dwóch adresów:
@@ -26,4 +26,7 @@ Z uwagi na brak GUI polecenia należy wysyłać za pośrednictwem programu Postm
 ```
 ```
 /api/Rezerwacje/
+```
+```
+/api/Standard/
 ```

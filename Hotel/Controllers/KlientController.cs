@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Hotel;
 using Hotel.Models;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace Hotel.Controllers
 {
@@ -22,16 +23,27 @@ namespace Hotel.Controllers
             _context = context;
         }
 
-        // GET: api/Klient
-        // Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Klient.
+        /// <summary>
+        /// GET: api/Klient
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja zwraca listę wszystkich encji zapisanych w tabeli Klient.
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Klient>>> GetKlient()
         {
             return await _context.Klient.ToListAsync();
         }
 
-        // GET: api/Klient/5
-        // Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Klient.
+        /// <summary>
+        /// GET: api/Klient/5
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja zwraca jedną encję o określonym identyfikatorze (id) z tabeli Klient.
+        /// </remarks>
+        /// <param name="id">tu podaj identyfikator klienta którego chcesz otrzymać</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Klient>> GetKlient(int id)
         {
@@ -45,17 +57,17 @@ namespace Hotel.Controllers
             return klient;
         }
 
-        // PUT: api/Klient/5
-        // Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Klient.
+        /// <summary>
+        /// / PUT: api/Klient/5
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja wprowadza zmiany w danych encji o określonym identyfikatorze (id) w tabeli Klient.
+        /// </remarks>
+        /// <param name="id">zaktualizuj dane klienta o tym identyfikatorze</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutKlient(int id, Klient klient)
         {
-            /*
-            if (id != klient.Id_Klient)
-            {
-                return BadRequest();
-            }
-            */
 
             klient.Id_Klient = id;
             _context.Entry(klient).State = EntityState.Modified;
@@ -78,20 +90,40 @@ namespace Hotel.Controllers
             return NoContent();
         }
 
-        // POST: api/Klient
-        // Ta funkcja dodaje do bazy danych nową encję (klienta).
-        // Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
+        /// <summary>
+        ///  POST: api/Klient
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja dodaje do bazy danych nową encję (klienta).
+        /// Jej nowy identyfikator jest przypisywany automatycznie jako inkrementacja ID ostatniej zapisanej encji.
+        /// </remarks>
+        /// <param name="KlientCreateSettings">Tworzy nowego klienta</param>
+        /// <returns></returns>
+        [SwaggerResponseExample(201, typeof(Klient.Example))]
+        [SwaggerRequestExample(typeof(Klient.Create), typeof(Klient.Create.Example))]
+        [Produces("application/json")]
         [HttpPost]
-        public async Task<ActionResult<Klient>> PostKlient(Klient klient)
+        public async Task<ActionResult<Klient>> PostKlient(Klient.Create
+            KlientCreateSettings)
         {
-            _context.Klient.Add(klient);
+            Klient newKlient = new Klient();
+            newKlient.Imie = KlientCreateSettings.Imie;
+            newKlient.Nazwisko = KlientCreateSettings.Nazwisko;
+
+            _context.Klient.Add(newKlient);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetKlient), new { id = klient.Id_Klient }, klient);
+            return CreatedAtAction(nameof(GetKlient), new { id = newKlient.Id_Klient }, newKlient);
         }
 
-        // DELETE: api/Klient/5
-        // Ta funkcja usuwa z tabeli Klient encję o określonym identyfikatorze (id).
+        /// <summary>
+        ///  DELETE: api/Klient/
+        /// </summary>
+        /// <remarks>
+        /// Ta funkcja usuwa z tabeli Klient encję o określonym identyfikatorze (id).
+        /// </remarks>
+        /// <param name="id">usuń klienta o danym identyfikatorze</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Klient>> DeleteKlient(int id)
         {
