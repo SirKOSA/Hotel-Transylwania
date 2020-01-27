@@ -8927,23 +8927,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SirKOSA\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\CLEVO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SirKOSA\\Downloads\\wetransfer-83ee34\\Hotel-Transylwania-jsonta-swagger\\Hotel-Transylwania-jsonta\\Hotel\\Hotel.csproj",
+      "projectUniqueName": "D:\\Projekt_hotel\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
       "projectName": "Hotel",
-      "projectPath": "C:\\Users\\SirKOSA\\Downloads\\wetransfer-83ee34\\Hotel-Transylwania-jsonta-swagger\\Hotel-Transylwania-jsonta\\Hotel\\Hotel.csproj",
-      "packagesPath": "C:\\Users\\SirKOSA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SirKOSA\\Downloads\\wetransfer-83ee34\\Hotel-Transylwania-jsonta-swagger\\Hotel-Transylwania-jsonta\\Hotel\\obj\\",
+      "projectPath": "D:\\Projekt_hotel\\Hotel-Transylwania\\Hotel\\Hotel.csproj",
+      "packagesPath": "C:\\Users\\CLEVO\\.nuget\\packages\\",
+      "outputPath": "D:\\Projekt_hotel\\Hotel-Transylwania\\Hotel\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\SirKOSA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\CLEVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8951,7 +8947,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files (x86)\\Microsoft SDKs\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
