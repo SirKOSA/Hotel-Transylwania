@@ -90,6 +90,10 @@ ipch/
 *.psess
 *.vsp
 *.vspx
+*.cache
+Hotel\obj\Hotel.csproj.nuget.dgspec.json
+Hotel\obj\Hotel.csproj.nuget.g.props
+Hotel\obj\project.assets.json
 
 # Guidance Automation Toolkit
 *.gpState
