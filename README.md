@@ -1,5 +1,5 @@
 # Hotel Transylwania
-Projekt zaliczeniowy z przedmiotu Środowisko Oprogramowania Komponentowego. Jest to interfejs API obsługujący hotel (sieć hoteli). Umożliwia zarządzanie pokojami, klientami, oraz rezerwacjami.
+Projekt zaliczeniowy z przedmiotu Środowisko Oprogramowania Komponentowego. Jest to interfejs API obsługujący hotel (sieć hoteli). Umożliwia zarządzanie pokojami, klientami, oraz rezerwacjami. Interfejs zawiera powłokę graficzną Swagger, dostępną w przeglądarce internetowej. Umożliwia wykonywanie operacji HTTP bezpośrednio z niej, oraz zawiera dokumentację parametrów.
 
 ## Wymagania
 * Visual Studio 2019 lub nowszy
