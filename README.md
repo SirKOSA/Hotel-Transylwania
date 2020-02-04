@@ -22,17 +22,3 @@ http://localhost:5000/
 ```
 https://localhost:5001/
 ```
-
-Z uwagi na brak GUI polecenia należy wysyłać za pośrednictwem programu Postman. Zapytania i odpowiedzi przesyłane są w formacie JSON. Obecnie API ma zaimplementowane trzy metody HTTP - POST, GET, PUT - oraz trzy klasy danych (tabele) znajdujące się pod adresami:
-```
-/api/Klient/
-```
-```
-/api/Pokoj/
-```
-```
-/api/Rezerwacje/
-```
-```
-/api/Standard/
-```
